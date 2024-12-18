@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cmdtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfattah <hfattah@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pkahil <pkahil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 10:26:10 by hfattah           #+#    #+#             */
-/*   Updated: 2024/12/03 10:26:12 by hfattah          ###   ########.fr       */
+/*   Updated: 2024/12/14 16:46:18 by pkahil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,33 @@ static char	**ft_fill_array(char **aux, char const *s, char *set, int i[3])
 			i[0]++;
 		}
 		if (i[1] >= s_len)
-			aux[i[2]++] = NULL;
+			aux[i[2]++] = "\0";
 		else
 			aux[i[2]++] = ft_substr(s, i[1], i[0] - i[1]);
 	}
 	return (aux);
 }
 
-char	**ft_cmdtrim(char const *s, char *set)
+void	handle_quoted_here_doc(char **args, t_prompt *p)
+{
+	int	i;
+
+	i = 0;
+	while (args[i])
+	{
+		if (ft_strncmp(args[i], "<<", 2) == 0)
+		{
+			if (args[i + 1] && (args[i + 1][0] == '"'
+				|| args[i + 1][0] == '\''))
+				p->flag = 1;
+			else
+				p->flag = 0;
+		}
+		i++;
+	}
+}
+
+char	**ft_cmdtrim(char const *s, char *set, t_prompt *p)
 {
 	char	**aux;
 	int		nwords;
@@ -89,5 +108,6 @@ char	**ft_cmdtrim(char const *s, char *set)
 		return (NULL);
 	aux = ft_fill_array(aux, s, set, i);
 	aux[nwords] = NULL;
+	handle_quoted_here_doc(aux, p);
 	return (aux);
 }

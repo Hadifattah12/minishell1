@@ -6,7 +6,7 @@
 /*   By: hfattah <hfattah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 10:50:02 by hfattah           #+#    #+#             */
-/*   Updated: 2024/12/03 14:47:05 by hfattah          ###   ########.fr       */
+/*   Updated: 2024/12/17 10:46:49 by hfattah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ int	check_out_of_range(int neg, unsigned long long num)
 {
 	if ((neg == 1 && num > LONG_MAX)
 		|| (neg == -1 && num > -(unsigned long)LONG_MIN))
-		return -1;
-	return 1;
+		return (-1);
+	return (1);
 }
 
-int	ft_atoi2(const char *nptr,unsigned long long *nbr)
+int	ft_atoi2(const char *nptr, unsigned long long *nbr)
 {
 	int		sign;
+
 	sign = 1;
 	*nbr = 0;
 	while (ft_isspace(*nptr))
@@ -37,7 +38,7 @@ int	ft_atoi2(const char *nptr,unsigned long long *nbr)
 	{
 		*nbr = 10 * *nbr + (*nptr - '0');
 		if (check_out_of_range(sign, *nbr) == -1)
-			return -1;
+			return (-1);
 		nptr++;
 	}
 	if (*nptr && !ft_isspace(*nptr))
@@ -48,7 +49,7 @@ int	ft_atoi2(const char *nptr,unsigned long long *nbr)
 
 int	mini_exit(t_list *cmd, int *is_exit)
 {
-	t_mini	*node;
+	t_mini				*node;
 	unsigned long long	status[2];
 
 	node = cmd->content;

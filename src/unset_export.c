@@ -6,7 +6,7 @@
 /*   By: hfattah <hfattah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:07:36 by hfattah           #+#    #+#             */
-/*   Updated: 2024/12/10 10:42:43 by hfattah          ###   ########.fr       */
+/*   Updated: 2024/12/17 11:14:37 by hfattah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,10 @@ int	mini_export(t_prompt *prompt)
 			pos = var_in_envp(argv[ij[0]], prompt->envp, ij);
 			if (pos == 1)
 				handle_found(prompt, argv[ij[0]]);
-			else if (pos == -1 && ft_strchars_i(argv[ij[0]], "~{}-#?%$!+@.") < 0)
+			else if (pos == -1 && ft_strchars_i(argv[ij[0]],
+					"~{}-#?%$!+@.") < 0)
 				handle_export(argv[ij[0]], prompt);
-			else if (ft_strchars_i(argv[ij[0]], "~{}-#!9$%?+@.") >= 0 || pos == -2)
+			else if (ft_strchars_i(argv[ij[0]], "~{}$%?+@.") >= 0 || pos == -2)
 				print_error_export(prompt, argv[ij[0]]);
 			else if (!pos)
 				extend_export(prompt, argv[ij[0]]);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfattah <hfattah@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pkahil <pkahil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 13:20:15 by hfattah           #+#    #+#             */
-/*   Updated: 2024/12/03 13:20:19 by hfattah          ###   ########.fr       */
+/*   Updated: 2024/12/14 16:26:51 by pkahil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-int	ft_atoi2(const char *nptr,unsigned long long *nbr)
+int	ft_atoi2(const char *nptr, long long *nbr)
 {
 	int		sign;
 

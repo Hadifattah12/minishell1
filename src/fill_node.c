@@ -6,7 +6,7 @@
 /*   By: hfattah <hfattah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 10:26:29 by hfattah           #+#    #+#             */
-/*   Updated: 2024/12/10 10:39:40 by hfattah          ###   ########.fr       */
+/*   Updated: 2024/12/17 10:31:40 by hfattah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ t_mini	*get_params(t_mini *node, char **a[2], int *i, t_prompt *prompt)
 		else if (a[0][*i][0] == '>')
 			node = get_outfile1(node, a[1], i);
 		else if (a[0][*i][0] == '<' && a[0][*i + 1] && \
-			a[0][*i + 1][0] == '<' && a[0][*i + 2] && a[0][*i + 2][0] != '<' && a[0][*i + 2][0] != '>')
+			a[0][*i + 1][0] == '<' && a[0][*i + 2] && a[0][*i + 2][0] != '<'
+			&& a[0][*i + 2][0] != '>')
 			node = get_infile2(node, a[1], i, prompt);
 		else if (a[0][*i][0] == '<')
 			node = get_infile1(node, a[1], i);
@@ -53,7 +54,7 @@ t_mini	*get_params(t_mini *node, char **a[2], int *i, t_prompt *prompt)
 	return (node);
 }
 
-static char	**get_trimmed(char **args)
+char	**get_trimmed(char **args)
 {
 	char	**temp;
 	char	*aux;

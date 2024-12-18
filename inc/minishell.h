@@ -6,7 +6,7 @@
 /*   By: hfattah <hfattah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 12:34:47 by hfattah           #+#    #+#             */
-/*   Updated: 2024/12/10 10:51:55 by hfattah          ###   ########.fr       */
+/*   Updated: 2024/12/17 11:14:52 by hfattah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_prompt
 	char	**envp;
 	pid_t	pid;
 	char	**export;
-	int		quoted;
+	int		flag;
 }			t_prompt;
 
 typedef struct s_mini
@@ -64,6 +64,16 @@ extern int	g_status;
 
 void	handle_unset(char *argv, t_prompt *prompt);
 
+void	sort_env(char **env);
+
+int		env_cmp(const char *env_a, const char *env_b);
+
+void	write_export(char **env, int i);
+
+char	*ft_strjoin_char(char *str, char c);
+
+char	*handle_special_cases(char *result, char *str, int i, t_prompt *prompt);
+
 void	handle_signal_execute(t_prompt *prompt, t_list *cmd);
 
 int		var_in_envp(char *argv, char **envp, int ij[2]);
@@ -73,6 +83,8 @@ void	exec_fork(t_prompt *prompt, t_list *cmd, int fd[2]);
 int		builtin(t_prompt *prompt, t_list *cmd, int *is_exit, int n);
 
 int		is_builtin(t_mini *n);
+
+char	**get_trimmed(char **args);
 
 void	print_error_export(t_prompt *prompt, char *argv);
 
@@ -88,6 +100,8 @@ int		mini_pwd(void);
 
 int		mini_echo(t_list *cmd);
 
+int		ft_atoi2(const char *nptr, unsigned long long *nbr);
+
 int		mini_export(t_prompt *prompt);
 
 int		mini_unset(t_prompt *prompt);
@@ -96,7 +110,7 @@ int		mini_exit(t_list *cmd, int *is_exit);
 
 void	*check_args(char *out, t_prompt *p);
 
-char	**ft_cmdtrim(char const *s, char *set);
+char	**ft_cmdtrim(char const *s, char *set, t_prompt *p);
 
 char	**ft_cmdsubsplit(char const *s, char *set);
 

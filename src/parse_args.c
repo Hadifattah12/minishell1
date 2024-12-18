@@ -6,7 +6,7 @@
 /*   By: hfattah <hfattah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 10:19:21 by hfattah           #+#    #+#             */
-/*   Updated: 2024/12/10 10:53:49 by hfattah          ###   ########.fr       */
+/*   Updated: 2024/12/17 10:38:46 by hfattah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,24 +109,12 @@ void	*check_args(char *out, t_prompt *p)
 	}
 	if (out[0] != '\0')
 		add_history(out);
-	a = ft_cmdtrim(out, " ");
+	a = ft_cmdtrim(out, " ", p);
 	free(out);
 	if (!a)
 		mini_perror(QUOTE, NULL, 1);
 	if (!a)
 		return ("");
-	int i = 0;
-	while (a[i])
-	{
-		if (ft_strncmp(a[i], "<<", 2) == 0 && a[i + 1])
-		{
-			if (a[i + 1][0] == '"' || a[i + 1][0] == '\'')
-				p->quoted = 1;
-			else
-				p->quoted = 0;
-		}
-		i++;
-	}
 	p = parse_args(a, p);
 	if (p && p->cmds)
 		n = p->cmds->content;

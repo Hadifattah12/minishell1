@@ -6,7 +6,7 @@
 /*   By: hfattah <hfattah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 10:03:53 by hfattah           #+#    #+#             */
-/*   Updated: 2024/12/03 14:54:59 by hfattah          ###   ########.fr       */
+/*   Updated: 2024/12/14 16:09:22 by hfattah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static t_prompt	init_prompt(char **argv, char **envp)
 
 	str = NULL;
 	prompt.cmds = NULL;
-	prompt.quoted = 0;
+	prompt.flag = 0;
 	prompt.envp = ft_dup_matrix(envp);
 	prompt.export = ft_dup_matrix(envp);
 	g_status = 0;

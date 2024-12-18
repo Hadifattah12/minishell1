@@ -38,6 +38,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		dst[i] = '\0';
 	return (size_src);
 }
-
-
-

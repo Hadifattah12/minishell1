@@ -6,7 +6,7 @@
 /*   By: hfattah <hfattah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:10:33 by hfattah           #+#    #+#             */
-/*   Updated: 2024/12/10 10:51:02 by hfattah          ###   ########.fr       */
+/*   Updated: 2024/12/17 10:33:15 by hfattah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	handle_export(char *argv, t_prompt *prompt)
 
 	export = prompt->export;
 	i = -1;
-	if(ft_strchars_i("0123456789",argv) >= 0)
+	if (ft_strchars_i("0123456789", argv) >= 0)
 	{
 		printf("minishell: '%s' not a valid identifier\n", argv);
 		return ;
@@ -100,14 +100,4 @@ void	handle_found(t_prompt *prompt, char *argv)
 	}
 	handle_found_export(prompt, argv);
 	return ;
-}
-
-int	mini_pwd(void)
-{
-	char	*buf;
-
-	buf = getcwd(NULL, 0);
-	ft_putendl_fd(buf, 1);
-	free(buf);
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hfattah <hfattah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 13:05:44 by hfattah           #+#    #+#             */
-/*   Updated: 2024/12/03 13:19:40 by hfattah          ###   ########.fr       */
+/*   Updated: 2024/12/17 10:47:04 by hfattah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int			ft_atoi(const char *nptr);
-
-int			ft_atoi2(const char *nptr,unsigned long long *nbr);
 
 char		*ft_itoa(int n);
 

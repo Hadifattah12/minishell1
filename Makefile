@@ -6,7 +6,7 @@
 #    By: hfattah <hfattah@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/03 10:15:55 by hfattah           #+#    #+#              #
-#    Updated: 2024/12/10 10:59:03 by hfattah          ###   ########.fr        #
+#    Updated: 2024/12/14 11:41:41 by hfattah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC = main.c builtins.c ft_strtrim_all.c exec.c helper.c         \
       fill_node.c get_params.c ft_cmdtrim.c unset_export.c \
       expand.c heredoc.c error.c env.c get_user.c       \
       get_next_line.c get_next_line_utils.c get_user_home.c    \
-      ft_cmdsubsplit.c signal.c parse_args.c get_cmd.c
+      ft_cmdsubsplit.c signal.c parse_args.c get_cmd.c expand_path.c
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

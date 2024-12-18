@@ -87,10 +87,8 @@ void	print_error_export(t_prompt *prompt, char *argv)
 	printf("minishell: '%s' not a valid identifier\n", argv);
 	if (argv[0] == '=' && !argv[1])
 		return ;
-	if (ft_strchars_i(argv, "~{}-$?%!#!+@.") >= 0)
-	{
+	if (ft_strchars_i(argv, "~{}-#!+@.") >= 0)
 		return ;
-	}
 	prompt->export = ft_extend_matrix(prompt->export, argv);
 }
 
